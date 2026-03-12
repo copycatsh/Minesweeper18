@@ -1,0 +1,18 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+      - frontend
+
+  api:
+    build: ./api
+    expose:
+      - "80"
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "5173"
